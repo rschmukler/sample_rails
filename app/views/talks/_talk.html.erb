@@ -1,4 +1,5 @@
 <div class="talk">
+  <%= link_to 'x', talk_path(talk), method: :delete, class: 'destroy' %>
   <h2><%= talk.title %></h2>
   <p><%= talk.description %></p>
 </div>

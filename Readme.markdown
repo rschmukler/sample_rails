@@ -218,7 +218,28 @@ _app/views/talks/index.html.erb_
 
 
 
-####
+#### Deleting talks
+
+Maybe we will want to delete talks. To do this, lets create a link to
+destroy the talk in the talk partial
+
+_app/views/talks/\_talk.html.erb_
+
+    <div class="talk">
+      <%= link_to 'x', talk_path(talk), :method => :delete, :class =>
+'destroy' %>
+      ...
+
+Lets also create the appropriate controller action.
+
+_app/controllers/talks\_controller.rb_
+
+    def destroy
+      Talk.destroy(params[:id])
+      flash[:alert] = "Talk successfully destroyed!"
+      redirect_to talks_path
+    end
+    
 
 
 ## 3) User Authentication and Sign Up

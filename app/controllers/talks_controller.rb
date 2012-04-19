@@ -18,4 +18,10 @@ class TalksController < ApplicationController
     end
   end
 
+  def destroy
+    Talk.destroy(params[:id])
+    flash[:alert] = "Talk successfully destroyed!"
+    redirect_to talks_path
+  end
+
 end

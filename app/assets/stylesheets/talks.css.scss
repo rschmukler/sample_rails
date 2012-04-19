@@ -64,12 +64,14 @@ div.content {
     padding: 5px 5px;
     background-color: #FCDBCC;
     border: 1px solid red;
+    margin-bottom: 10px;
   }
 
   .notice {
     padding: 5px 5px;
     background-color: #E4EAD2;
     border: 1px solid green;
+    margin-bottom: 10px;
   }
 
   h1 {
@@ -112,6 +114,12 @@ div.content {
     -ms-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
+
+    a.destroy {
+      float: right;
+      color: #ccc;
+      text-decoration: none;
+    }
 
     &:hover {
       background-color: lighten(#CDDFEC, 10%);
