@@ -25,12 +25,16 @@ class TalksController < ApplicationController
   end
 
   def vote
-    if session[:voted]
+    if session[:voted] and session[:voted] >= 2
       flash[:alert] = "Sorry you've already voted. Thanks though!"
     else
       flash[:notice] = "Vote successfully counted!"
       Talk.find(params[:talk_id]).cast_vote!
-      session[:voted] = true
+      if session[:voted].nil?
+        session[:voted] = 1
+      else
+        session[:voted] += 1
+      end
     end
     redirect_to talks_path
   end
