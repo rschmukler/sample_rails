@@ -1,3 +1,91 @@
 // Place all the styles related to the talks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  height: 100%;
+  background: #d4e4ef; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d4e4ef 0%, #86aecc 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d4e4ef), color-stop(100%,#86aecc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #d4e4ef 0%,#86aecc 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #d4e4ef 0%,#86aecc 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #d4e4ef 0%,#86aecc 100%); /* IE10+ */
+  background: linear-gradient(top,  #d4e4ef 0%,#86aecc 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc',GradientType=0 ); /* IE6-9 */
+  
+}
+
+
+.topbar {
+  background: #7d7e7d; /* Old browsers */
+  background: -moz-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+  background: linear-gradient(top, #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+  position: absolute;
+  width: 100%;
+  top: 0;
+
+  .topbar-inner {
+    width: 960px;
+    margin: 0 auto;
+    height: 45px;
+
+    h1{
+      margin: 5px 0 15px 0;
+      color: white;
+      font-weight: bold;
+      text-shadow: -1px -1px 1px black;
+    }
+  }
+}
+body {
+  padding: 0px;
+  margin: 0 0;
+  height: 100%;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Verdana', 'Arial';
+}
+
+
+div.content {
+  width: 960px;
+  margin: 90px auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #8CB2CF;
+  box-shadow: 1px 1px 1px darken(#87AFCC, 5%);
+  min-height: 400px;
+  background-color: white;
+
+  h1 {
+    color: darken(#88AFCD, 20%);
+    font-weight: 400;
+  }
+
+  form {
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      font-size: 30px;
+    }
+
+    input[type="submit"] {
+      font-size: 26px;
+    }
+    label {
+      font-size: 20px;
+    }
+
+    padding-bottom: 20px;
+
+  }
+  
+  .talks {
+
+  }
+}
