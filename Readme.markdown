@@ -341,3 +341,5 @@ _app/views/talks/\_talk.html.erb_
         <p><%= talk.description %></p>
       </div>
     <% end %> 
+
+### That's all folks!
