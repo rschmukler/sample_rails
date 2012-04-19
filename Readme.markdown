@@ -2,7 +2,7 @@
 ## Introduction
 This is a sample, and simple Ruby on Rails Application used by Ryan Schmukler to introduce others to the Ruby on Rails Framework.
 ## What it Does
-The application we are building will server as a way for people to vote for ideas about which topic they would like to hear a talk on next.
+The application we are building will serve as a way for people to vote for ideas about which topic they would like to hear a talk on next.
 ## Additional Resources
 This guide is by no means comprehensive. Below see a list of additional resources I would recommend checking out.
 
