@@ -341,27 +341,3 @@ _app/views/talks/\_talk.html.erb_
         <p><%= talk.description %></p>
       </div>
     <% end %> 
-
-
-
-
-## 3) User Authentication and Sign Up
-
-To ensure that users don't vote more than once, we want to be able to authenticate them.
-
-### Generate the User Model
-We will make a simple user model with a username and an encrypted password hash.
-To make this, we will use the rails generate command. 
-
-		rails generate model User username:string encrypted_password:string admin:boolean
-
-This generates a few files.
-
-		db/migrate/<date>_create_users.rb - Database migration file. Creates SQL tables
-		app/models/user.rb - User class file. Note that it extends active record.
-
-### 
-
-### Make the User
-
-
