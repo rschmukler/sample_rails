@@ -336,10 +336,11 @@ _app/views/talks/\_talk.html.erb_
     <%= link_to 'x', talk_path(talk), method: :delete, class: 'destroy' %>
     <%= link_to talk_vote_path(talk), method: :put, class: 'vote' do %>
       <div class="talk">
+        <p class="vote-count"><%= talk.vote_count %></p>
         <h2><%= talk.title %></h2>
         <p><%= talk.description %></p>
       </div>
-    <% end %>
+    <% end %> 
 
 
 
