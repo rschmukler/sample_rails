@@ -342,4 +342,39 @@ _app/views/talks/\_talk.html.erb_
       </div>
     <% end %> 
 
+## 4) Let's Deploy it!
+
+### Introducing Heroku
+
+Heroku makes deploying rails applications dead simple! Simply visit
+[their site] (http://heroku.com) and sign up. I will now show how to
+deploy on Heroku.
+
+### Install the Heroku Gem
+
+Edit your Gemfile to add the following lines:
+    
+    gem 'heroku'
+    gem 'pg' # Postgresql adapter - used by Heroku
+
+Then run `bundle install` to have bundler install the gems
+
+
+### Set up a Git repository (if you don't have one already)
+
+Next we need to create a repository for heroku to use. If you don't know
+what Git is... You're on Github... figure it out. Run the following
+commands:
+
+    git init .
+    git add .
+    git commit -m "Initial Commit"
+
+### Create a heroku app and deploy!
+
+    heroku create
+    git push heroku master
+
+
+
 ### That's all folks!
