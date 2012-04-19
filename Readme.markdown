@@ -80,9 +80,10 @@ Generating a resource automatically generates the following files:
 * __app/assets/javascripts/talks.js.coffee__ - coffeescript file for related CoffeeScript
 * __app/assets/stylesheets/talks.css.scss__ - SCSS for related CSS
 
-It also adds the following line to routes.rb
+It also adds the following line to `routes.rb`
 		
 	resources talks
+
 
 To see what that line does, run:
 		
@@ -98,6 +99,13 @@ We see that rails has taken care of creating some RESTful routes and mapping the
 	          PUT    /talks/:id(.:format)      {:action=>"update", :controller=>"talks"}
 	          DELETE /talks/:id(.:format)      {:action=>"destroy", :controller=>"talks"}
 
+While we are in the `routes.rb` file lets also set the default action to
+the talks index.
+
+    root :to => 'talks#index'
+
+
+
 To apply the schema changes to the database, run the following:
 
 	rake db:migrate
@@ -110,6 +118,7 @@ _app/models/talk.rb_
 	  validates_presence_of :title
 	  validates_presence_of :description
 	end
+
 
 ### Create some Views
 
@@ -373,8 +382,23 @@ commands:
 ### Create a heroku app and deploy!
 
     heroku create
-    git push heroku master
 
+Grab the URL for your application out of the output. 
+
+    Creating fierce-leaf-2338... done, stack is bamboo-mri-1.9.2
+    http://fierce-leaf-2338.heroku.com/ | git@heroku.com:fierce-leaf-2338.git
+    Git remote heroku added
+
+In this case, it is `http://fierce-leaf-2338.heroku.com/`
+
+Next push to the heroku repository, and migrate your database.
+
+    git push heroku master
+    heroku run rake:db migrate
+
+
+Now visit the URL given in your output above. You can checkout more at
+[Heroku's Site] (http://heroku.com)
 
 
 ### That's all folks!
