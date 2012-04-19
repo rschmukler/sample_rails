@@ -381,7 +381,7 @@ commands:
 
 ### Create a heroku app and deploy!
 
-    heroku create
+    heroku create -s cedar <name>
 
 Grab the URL for your application out of the output. 
 
