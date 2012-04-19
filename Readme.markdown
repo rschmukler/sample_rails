@@ -361,8 +361,13 @@ deploy on Heroku.
 
 ### Install the Heroku Gem
 
-Edit your Gemfile to add the following lines:
-    
+First we need to install the heroku gem and Postgres database adapter.
+We also need to move the sqlite gem to development mode only. Make sure you take out the line that has it as just a general gem. Edit your Gemfile to add the following lines:
+
+    group :development do
+      gem 'sqlite3'
+    end
+
     gem 'heroku'
     gem 'pg' # Postgresql adapter - used by Heroku
 
@@ -385,9 +390,9 @@ commands:
 
 Grab the URL for your application out of the output. 
 
-    Creating fierce-leaf-2338... done, stack is bamboo-mri-1.9.2
-    http://fierce-leaf-2338.heroku.com/ | git@heroku.com:fierce-leaf-2338.git
-    Git remote heroku added
+    Creating voterapp... done, stack is cedar
+    http://voterapp.herokuapp.com/ | git@heroku.com:voterapp.git
+    Git remote heroku added 
 
 In this case, it is `http://fierce-leaf-2338.heroku.com/`
 
