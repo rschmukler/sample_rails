@@ -211,10 +211,10 @@ Lets also add a link to the new talk path to the index view
 
 _app/views/talks/index.html.erb_
 
-	<div class="talks">
-	  <%= link_to "New Talk", new_talk_path %>
-	  <%= render @talks %>
-	</div>
+    <%= link_to "New Talk", new_talk_path %>
+    <div class="talks">
+      <%= render @talks %>
+    </div>
 
 
 
