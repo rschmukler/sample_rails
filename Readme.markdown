@@ -239,6 +239,53 @@ _app/controllers/talks\_controller.rb_
       redirect_to talks_path
     end
     
+## 3) Voting
+
+Now it is time to add voting functionality to the site. 
+
+### Generate a vote model
+
+Lets start by creating a vote model. We will create votes in the
+database. This would allow us to see when votes were casted, and
+eventually perhaps tie them to a user model (we will not be covering
+that today!)
+
+    rails g model Vote talk_id:integer
+
+Next, lets apply the database schema changes by running `rake db:migrate`
+
+### Set up Vote Associations
+
+We want a vote to belong to a talk, as served by the `talk_id` column.
+Rails makes this dead simple, and handles the SQL queries for us. Take
+that join statements! We will also add a method to `Talk` which gives us
+the vote count for a given talk. Lastly, we will add a method to `Talk`
+to create a vote. It is worth noting that if the vote object was going
+to be something we wanted RESTful operations for, it is likely we'd want
+to make a seperate controller.
+
+_app/models/vote.rb_
+
+    class Vote < ActiveRecord::Base
+       belongs_to :talk
+    end
+
+_app/models/talk.rb_
+
+    class Talk < ActiveRecord::Base
+      validates_presence_of :title
+      validates_presence_of :description
+
+      has_many :votes
+
+      def vote_count
+        votes.count
+      end
+
+      def cast_vote!
+        v = Vote.create(:talk_id => self.id)
+      end
+    end
 
 
 ## 3) User Authentication and Sign Up
