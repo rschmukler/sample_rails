@@ -226,8 +226,7 @@ destroy the talk in the talk partial
 _app/views/talks/\_talk.html.erb_
 
     <div class="talk">
-      <%= link_to 'x', talk_path(talk), :method => :delete, :class =>
-'destroy' %>
+      <%= link_to 'x', talk_path(talk), :method => :delete, :class => 'destroy' %>
       ...
 
 Lets also create the appropriate controller action.
