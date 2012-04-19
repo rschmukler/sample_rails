@@ -258,7 +258,9 @@ Next, lets apply the database schema changes by running `rake db:migrate`
 
 We want a vote to belong to a talk, as served by the `talk_id` column.
 Rails makes this dead simple, and handles the SQL queries for us. Take
-that join statements! We will also add a method to `Talk` which gives us
+that join statements! 
+
+We will also add a method to `Talk` which gives us
 the vote count for a given talk. Lastly, we will add a method to `Talk`
 to create a vote. It is worth noting that if the vote object was going
 to be something we wanted RESTful operations for, it is likely we'd want
@@ -283,9 +285,63 @@ _app/models/talk.rb_
       end
 
       def cast_vote!
-        v = Vote.create(:talk_id => self.id)
+        Vote.create(:talk_id => self.id)
       end
     end
+
+### Set up a vote route
+
+Next, lets make it so that there is a route for casting a vote. To do
+this, we will need to use a block and create a nested route under the
+talk resource. This follows good REST principles, as we want to PUT to
+`localhost:3000/talks/:id/vote` to cast a vote.
+
+_config/routes.rb_
+
+    resources :talks do
+      put 'vote' => 'talks#vote', :as => 'vote'
+    end
+
+Running `rake routes` will show us this new route.
+
+    talk_vote PUT    /talks/:talk_id/vote(.:format) {:action=>"vote", :controller=>"talks"} 
+    ...
+
+
+### Create a vote action
+
+We will need to add an action to the talk controller for the vote. We
+will use the `session` to store a vote to prevent users from voting more
+than once. Please note that this is **not** actually secure. A user
+could just clear their cookies and vote again. Don't do it!
+
+    def vote
+      if session[:voted]
+        flash[:alert] = "Sorry you've already voted. Thanks though!"
+      else
+        flash[:notice] = "Vote successfully counted!"
+        Talk.find(params[:talk_id]).cast_vote!
+        session[:voted] = true
+      end
+      redirect_to talks_path
+    end
+
+### Modify the Talk Partial
+
+Now we want to update the talk partial to show us the vote count on a given
+talk. We also want to make the partial a link to cast a vote.
+
+_app/views/talks/\_talk.html.erb_
+
+    <%= link_to 'x', talk_path(talk), method: :delete, class: 'destroy' %>
+    <%= link_to talk_vote_path(talk), method: :put, class: 'vote' do %>
+      <div class="talk">
+        <h2><%= talk.title %></h2>
+        <p><%= talk.description %></p>
+      </div>
+    <% end %>
+
+
 
 
 ## 3) User Authentication and Sign Up

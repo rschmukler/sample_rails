@@ -1,5 +1,7 @@
-<div class="talk">
-  <%= link_to 'x', talk_path(talk), method: :delete, class: 'destroy' %>
-  <h2><%= talk.title %></h2>
-  <p><%= talk.description %></p>
-</div>
+<%= link_to 'x', talk_path(talk), method: :delete, class: 'destroy' %>
+<%= link_to talk_vote_path(talk), method: :put, class: 'vote' do %>
+  <div class="talk">
+    <h2><%= talk.title %></h2>
+    <p><%= talk.description %></p>
+  </div>
+<% end %>

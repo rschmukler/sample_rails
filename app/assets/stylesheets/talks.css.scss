@@ -49,6 +49,10 @@ body {
   font-family: 'Helvetica Neue', 'Helvetica', 'Verdana', 'Arial';
 }
 
+a.vote {
+  color: black;
+  text-decoration: none;
+}
 
 div.content {
   width: 960px;
@@ -104,6 +108,13 @@ div.content {
   .talks {
     padding-top: 20px;
   }
+
+  a.destroy {
+    float: right;
+    margin-right: 15px;
+    color: #ccc;
+    text-decoration: none;
+  }
   
   .talk {
     border: 1px solid #dedefa;
@@ -115,11 +126,6 @@ div.content {
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 
-    a.destroy {
-      float: right;
-      color: #ccc;
-      text-decoration: none;
-    }
 
     &:hover {
       background-color: lighten(#CDDFEC, 10%);

@@ -24,4 +24,15 @@ class TalksController < ApplicationController
     redirect_to talks_path
   end
 
+  def vote
+    if session[:voted]
+      flash[:alert] = "Sorry you've already voted. Thanks though!"
+    else
+      flash[:notice] = "Vote successfully counted!"
+      Talk.find(params[:talk_id]).cast_vote!
+      session[:voted] = true
+    end
+    redirect_to talks_path
+  end
+
 end

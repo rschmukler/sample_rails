@@ -9,6 +9,6 @@ class Talk < ActiveRecord::Base
   end
 
    def cast_vote!
-    v = Vote.create(:talk_id => self.id)
+    Vote.create(:talk_id => self.id)
   end
 end

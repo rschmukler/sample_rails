@@ -1,5 +1,8 @@
 Voter::Application.routes.draw do
-  resources :talks
+  resources :talks do
+    put 'vote' => 'talks#vote', :as => 'vote'
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
