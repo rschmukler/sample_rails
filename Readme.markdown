@@ -42,7 +42,7 @@ This will create a new rails application with the standard files. The -T flag si
 
 Let's check out rails! We can start the server by running:
 
-       	rails server
+		rails server
 		
 and then visiting [http://localhost:3000](http://localhost:3000)
 
@@ -149,4 +149,5 @@ This generates a few files.
 ### 
 
 ### Make the User
+
 
