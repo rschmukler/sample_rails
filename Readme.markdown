@@ -394,7 +394,7 @@ Grab the URL for your application out of the output.
     http://voterapp.herokuapp.com/ | git@heroku.com:voterapp.git
     Git remote heroku added 
 
-In this case, it is `http://fierce-leaf-2338.heroku.com/`
+In this case, it is `http://voterapp.herokuapp.com/`
 
 Next push to the heroku repository, and migrate your database.
 
